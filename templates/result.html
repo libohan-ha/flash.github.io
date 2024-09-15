@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>词语新解结果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>词语新解结果</h1>
+        <p><strong>词语：</strong>{{ word }}</p>
+        <p><strong>新解：</strong></p>
+        <div class="definition">
+            {{ definition }}
+        </div>
+        <a href="{{ url_for('index') }}" class="back-link">返回</a>
+
+    </div>
+
+    <script>
+        // 添加键盘事件监听器
+        document.addEventListener('keydown', function(event) {
+            // 检测是否按下 Enter 键
+            if (event.key === 'Enter') {
+                // 阻止默认行为（如果有的话）
+                event.preventDefault();
+                // 重定向回主页面
+                window.location.href = "{{ url_for('index') }}";
+            }
+        });
+    </script>
+</body>
+</html>
